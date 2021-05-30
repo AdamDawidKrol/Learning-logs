@@ -1,0 +1,17 @@
+{% extends 'learning_logs/base.html' %}
+
+{%block header %}
+  <h2>Main Topics</h2>
+{%endblock header %}
+
+{%block content%}
+
+  <ul>
+    {% for main_topic in main_topics%}
+      <li> <a href="{% url 'learning_logs:main_topic' main_topic.id %}">{{ main_topic }}</a> </li>
+    {% empty %}
+      <li> No main topics have been added </li>
+    {% endfor %}  
+  </ul>
+  <h3><a href="{% url 'learning_logs:new_main_topic' %}">Add a new main topic</a></h3>
+{%endblock content%}
